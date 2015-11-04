@@ -21,7 +21,6 @@ public class EmployeeMain extends EmployeeServiceImpl {
 				break;
 
 		} while (option == 1);
-
 		int employeeid = KeyBoard.readInt("Enter employee id to delete");
 		Employee employee = employeeService.get(employeeid);
 		if (employee == null) {
