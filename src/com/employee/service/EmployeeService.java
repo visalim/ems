@@ -1,20 +1,19 @@
 package com.employee.service;
-import  com.employee.domain.Employee;
+
+import com.employee.domain.Employee;
 import java.util.List;
+
+
 public interface EmployeeService {
 
-		void add(Employee employee);
+	void add(Employee employee);
 
-		boolean delete(int id);
+	boolean delete(int id);
 
-		void display();
+	Employee update(Employee employee);
 
-		Employee update(Employee employee);
-		List<Employee> list();
+	List<Employee> list();
 
-		Employee get(int id);
-		
-	}
-	
+	Employee get(int id);
 
-
+}

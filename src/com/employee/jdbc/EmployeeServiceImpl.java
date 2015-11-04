@@ -41,16 +41,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employees.add(employee);
 	}
 
-	public void display() {
-		List<Employee> employees = list();
-		for (Employee employee : employees) {
-			System.out.println(employee.getFirstName());
-			System.out.println(employee.getLastName());
-			System.out.println(employee.getId());
-			System.out.println(employee.getEmail());
-		}
-	}
-
 	public boolean delete(int employeeId) {
 		boolean isdeleted = false;
 		try {
