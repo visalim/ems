@@ -3,8 +3,8 @@ package com.employee.main;
 import java.util.List;
 
 import com.employee.domain.Employee;
-import com.employee.jdbc.EmployeeServiceImpl;
 import com.employee.service.EmployeeService;
+import com.employee.service.impl.EmployeeServiceImpl;
 import com.employee.util.EmployeeIO;
 import com.employee.util.KeyBoard;
 
@@ -15,7 +15,7 @@ public class EmployeeMain extends EmployeeServiceImpl {
 		EmployeeService employeeService = new EmployeeServiceImpl();
 		do {
 			Employee employee = EmployeeIO.read();
-			employeeService.add(employee);
+			employeeService.save(employee);
 			option = KeyBoard.readInt("do you want to continue:(1/0)");
 			if (option == 0)
 				break;
@@ -32,10 +32,7 @@ public class EmployeeMain extends EmployeeServiceImpl {
 			} else {
 				KeyBoard.print("Unable to delete employee");
 			}
-			List<Employee> employees = employeeService.list();
-			EmployeeIO.display(employees);
 		}
-
 		int id = KeyBoard.readInt("Enter employee id to update");
 		employee = employeeService.get(id);
 		if (employee == null) {
@@ -48,6 +45,8 @@ public class EmployeeMain extends EmployeeServiceImpl {
 			employee = employeeService.update(employee);
 			EmployeeIO.display(employee);
 		}
+		List<Employee> employees = employeeService.list();
+		EmployeeIO.display(employees);
 	}
 
 }

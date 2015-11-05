@@ -6,7 +6,6 @@ public class EmployeeIO {
 	public static Employee read() {
 		Employee employee = new Employee();
 
-		employee.setId(KeyBoard.readInt("enter id"));
 		employee.setFirstName(KeyBoard.readString("enter first name"));
 		employee.setEmail(KeyBoard.readString("enter email"));
 		employee.setLastName(KeyBoard.readString("enter last name"));
