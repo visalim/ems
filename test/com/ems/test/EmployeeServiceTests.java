@@ -1,5 +1,4 @@
 package com.ems.test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
@@ -51,10 +50,10 @@ public class EmployeeServiceTests {
 	
 		Employee savedEmployee = employeeService.save(employee);
 		boolean isDeleted = employeeService.delete(savedEmployee.getId());
-        assertEquals(isDeleted,1);
+        assertEquals(isDeleted,true);
 	}
 	@Test
-	public void  update(){
+	public void  testUpdate(){
 		Employee employee=new Employee();
 		employee.setFirstName("visali");
 		employee.setLastName("masina");
@@ -67,14 +66,22 @@ public class EmployeeServiceTests {
 		assertEquals(updatedemployee.getId(),savedEmployee.getId());
 }
 	@Test
-	public void list(){
-     		List<Employee> employees=new ArrayList();
+	public void testList(){
      		Employee employee=new Employee();
      		employee.setFirstName("visali");
      		employee.setLastName("masina");
 	        employee.setEmail("vishalmasina@gmail.com");
-	        employees.add(employee);
+	        employeeService.save(employee);
+	        List<Employee> employees = employeeService.list();
 	        assertNotNull(employees);
+		
+	}
+	@Test
+	public void testGet(){
+		Employee employee=new Employee();
+		Employee savedEmployee=employeeService.save(employee);
+	    Employee getemployee=employeeService.get(savedEmployee.getId());
+	    assertNotNull(getemployee);
 		
 	}
 	}
